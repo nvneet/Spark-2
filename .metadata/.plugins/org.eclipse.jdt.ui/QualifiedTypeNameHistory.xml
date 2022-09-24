@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="scala.Tuple2"/>
+<fullyQualifiedTypeName name="org.apache.spark.sql.SparkSession"/>
+<fullyQualifiedTypeName name="org.apache.spark.sql.streaming.OutputMode"/>
+<fullyQualifiedTypeName name="org.apache.spark.sql.streaming.Trigger"/>
+<fullyQualifiedTypeName name="org.apache.spark.streaming.Duration"/>
+<fullyQualifiedTypeName name="org.apache.spark.streaming.Durations"/>
+<fullyQualifiedTypeName name="org.apache.spark.sql.Row"/>
+<fullyQualifiedTypeName name="org.apache.spark.sql.types.StructType"/>
+<fullyQualifiedTypeName name="org.apache.spark.sql.types.StructField"/>
+</qualifiedTypeNameHistroy>

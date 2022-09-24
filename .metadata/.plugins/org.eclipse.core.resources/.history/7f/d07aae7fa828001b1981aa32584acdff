@@ -1,0 +1,28 @@
+package com.sparksql;
+
+import static org.apache.spark.sql.functions.*;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
+import org.apache.spark.sql.SparkSession;
+
+public class MoreAggregation {
+
+	public static void main(String[] args) {
+		Logger.getLogger("org.apache").setLevel(Level.ERROR);
+		
+		SparkSession sparkSession = SparkSession.builder().appName("SparkSQL-App").master("local[*]").getOrCreate();
+		Dataset<Row> studentsData = sparkSession.read().option("header", true).csv("/root/sparkfiles/testdata/exams/students.csv");
+
+//		Dataset<Row> modernArtResults = studentsData.filter(col("subject").equalTo("Modern Art").and(col("year").geq(2007)));
+		
+//		studentsData = studentsData.groupBy("subject").agg(max(col("score").alias("max_score")),
+//														   min(col("score").alias("min_score")),
+//														   avg(col("score").alias("average_score")));
+		
+		studentsData.show();		
+		sparkSession.close();
+	}
+}

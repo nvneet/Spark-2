@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.virtualpairprogrammers&apos; to &apos;com.navspark&apos;&#x0A;- Original project: &apos;learningSpark&apos;&#x0A;- Original element: &apos;learningSpark/src/main/java/com.virtualpairprogrammers&apos;&#x0A;- Renamed element: &apos;learningSpark/src/main/java/com.navspark&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings&#x0A;- Rename subpackages of the package" description="Rename package &apos;com.virtualpairprogrammers&apos;" flags="589830" hierarchical="true" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;com.virtualpairprogrammers" name="com.navspark" qualified="false" references="true" stamp="1588357868521" textual="false" version="1.0"/>
+</session>

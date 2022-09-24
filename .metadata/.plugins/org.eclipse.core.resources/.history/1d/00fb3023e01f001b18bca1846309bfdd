@@ -1,0 +1,24 @@
+package com.myspark.ss;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
+import org.apache.spark.sql.SparkSession;
+
+public class ViewingFiguresSS {
+	
+	public static void main(String[] args) 
+	{
+		Logger.getLogger("org.apache").setLevel(Level.WARN);
+		Logger.getLogger("org.apache.spark.storage").setLevel(Level.ERROR);
+		
+		SparkSession session = SparkSession.builder().master("local[*]").appName("SS").getOrCreate();
+		
+		Dataset<Row> df = session.readStream().format("kafka")
+							     .option("kafka.bootstrap.servers", "localhost:9092")
+								 .option("subscribe", "mytopic")
+								 .load();
+
+	}
+}

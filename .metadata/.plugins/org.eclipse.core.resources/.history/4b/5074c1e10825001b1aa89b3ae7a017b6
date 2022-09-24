@@ -1,0 +1,5 @@
+package com.sparksql.util;
+
+public class StructFieldsUtil {
+
+}
