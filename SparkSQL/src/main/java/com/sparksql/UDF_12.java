@@ -1,0 +1,34 @@
+package com.sparksql;
+
+import static org.apache.spark.sql.functions.callUDF;
+import static org.apache.spark.sql.functions.col;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
+import org.apache.spark.sql.SparkSession;
+import org.apache.spark.sql.types.DataTypes;
+
+public class UDF_12 {
+
+	public static void main(String[] args) {
+		Logger.getLogger("org.apache").setLevel(Level.ERROR);
+		
+		SparkSession sparkSession = SparkSession.builder().appName("PivotTableExercise") .master("local[*]").getOrCreate();
+		Dataset<Row> studentsData = sparkSession.read().option("header", true).csv("/root/sparkfiles/testdata/exams/students.csv");
+
+		sparkSession.udf().register("result", (String grade, String subject) -> {
+			if (subject.equalsIgnoreCase("Biology"))
+				return grade.startsWith("A") ? "Pass" : "Fail";
+			return (grade.startsWith("A") || grade.startsWith("B") || grade.startsWith("C"))? "Pass" : "Fail";
+		}, DataTypes.StringType);
+		
+		studentsData = studentsData.withColumn("Pass", callUDF("result", col("grade"), col("subject")));
+		
+		studentsData.show();
+		sparkSession.close();
+
+	}
+
+}
